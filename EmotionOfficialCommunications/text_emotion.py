@@ -31,5 +31,6 @@ def run_model(model, vectorizer):
         print("Predicted emotion: ", emotions[predictions[0]])
 
 
-model, vectorizer = load_model("./models/85-66931854169266_logistic_regression_model.pkl")
-run_model(model, vectorizer)
+if __name__ == '__main__':
+    model, vectorizer = load_model("./models/85-66931854169266_logistic_regression_model.pkl")
+    run_model(model, vectorizer)
