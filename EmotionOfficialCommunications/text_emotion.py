@@ -2,7 +2,6 @@ import pandas as pd
 import joblib
 import re
 
-
 emotions = ['sadness', 'joy', 'love', 'anger', 'fear', 'surprise']
 
 def clean_data(review):
@@ -12,11 +11,11 @@ def clean_data(review):
     return ''
 
 def load_model(filename):
-    model, vectorizer = joblib.load(filename)
+    model_, vectorizer_ = joblib.load(filename)
     print(f'Model loaded from {filename}')
-    return model, vectorizer
+    return model_, vectorizer_
 
-def run_model(model, vectorizer):
+def run_model(model_, vectorizer_):
     while True:
         phrase = input(f'Enter phrase (/stop):   ')
         if phrase.lower() == 'stop':
@@ -24,13 +23,20 @@ def run_model(model, vectorizer):
         new_data = pd.DataFrame({'text': [phrase]})
         new_data['text'] = new_data['text'].apply(clean_data)
 
-        X_new = vectorizer.transform(new_data['text'])
+        X_new = vectorizer_.transform(new_data['text'])
 
-        predictions = model.predict(X_new)
+        predictions = model_.predict(X_new)
 
         print("Predicted emotion: ", emotions[predictions[0]])
 
+def count_tweets():
+    df = pd.read_csv("./data/twitter_emotions.csv")
+    for i, emotion in enumerate(emotions):
+        count = (df['label'] == i).sum()
+        print(f"{emotion}: {count}")
+
 
 if __name__ == '__main__':
+    count_tweets()
     model, vectorizer = load_model("./models/85-66931854169266_logistic_regression_model.pkl")
     run_model(model, vectorizer)
