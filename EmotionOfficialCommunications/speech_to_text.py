@@ -5,12 +5,7 @@ pip install torch
 conda install -c conda-forge ffmpeg
 """
 
-import whisper
-
 from typing import Tuple
-import os
-import whisper
-
 import whisper
 
 def speech_to_text(wav_file_path) -> Tuple[str, str]:
