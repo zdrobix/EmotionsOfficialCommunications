@@ -44,10 +44,13 @@ def speech_to_text(wav_file_path) -> Tuple[str, str]:
 
 
 def test_speech_to_text():
-    language, text = speech_to_text("SpeechData\\ass_whooped.wav")
+    language, text = speech_to_text("SpeechData\\bush_prudent1.wav")
     assert language == "en"
     print(text)
     language, text = speech_to_text("SpeechData\\harvard.wav")
+    assert language == "en"
+    print(text)
+    language, text = speech_to_text("SpeechData\\bush-clinton_debate_waffle.wav")
     assert language == "en"
     print(text)
 
