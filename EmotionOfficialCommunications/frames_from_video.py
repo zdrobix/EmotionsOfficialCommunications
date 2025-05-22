@@ -48,7 +48,7 @@ if __name__ == "__main__":
     video_path = './input/video'
     for video in os.listdir(video_path):
         video_file = os.path.join(video_path, video)
-        output_path = './output_frames'
+        output_path = './input/frames_from_videos'
         try:
             extract_frames_from_video(video_file, output_path)
             print(f"Frames extracted and saved to {output_path}")
