@@ -84,3 +84,19 @@ Accuracy: 85%
 ---
 
 >>>>>>> 48efe958b717e427351bb0c29644c52c758de10f
+
+---
+## Installation and Setup
+
+Înainte de a folosi funcția `speech_to_text`, rulați următoarele comenzi pentru a instala toate dependențele necesare:
+
+```
+# Instalați Whisper și Torch
+pip install --upgrade openai-whisper torch
+
+# Instalați ffmpeg (necesar pentru decodificarea audio)
+# Dacă folosiți Conda:
+conda install -c conda-forge ffmpeg
+```
+
+---
