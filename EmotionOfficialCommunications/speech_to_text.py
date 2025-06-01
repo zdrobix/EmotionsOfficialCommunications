@@ -34,7 +34,7 @@ def speech_to_text(wav_file_path) -> Tuple[str, str]:
         If transcription fails due to missing dependencies (e.g., ffmpeg) or model errors.
     """
     # The potential arguments for load_model: "tiny", "base", "small", "medium", "large"
-    model = whisper.load_model("small")
+    model = whisper.load_model("tiny")
     result = model.transcribe(wav_file_path)
 
     language = result["language"]
@@ -54,4 +54,3 @@ def test_speech_to_text():
     assert language == "en"
     print(text)
 
-test_speech_to_text()
