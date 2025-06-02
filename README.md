@@ -79,8 +79,35 @@ Accuracy: 85%
 
 ## CNN for image-based emotions
 
----
----
----
+The model was trained on the FER (Facial Emotion Recognition) dataset which contains 35,685 examples of 48x48 pixel grayscale images of faces divided into train and test datasets. Images are categorized based on the emotion shown in the facial expressions:
+- Anger
+- Disgust
+- Fear
+- Happy
+- Sad
+- Surprise
+- Neutral
 
->>>>>>> 48efe958b717e427351bb0c29644c52c758de10f
+[Link to the dataset](https://www.kaggle.com/datasets/ananthu017/emotion-detection-fer)
+
+The CNN architecture consists of:
+- 3 Convolutional layers with ReLU activation and MaxPooling
+- 2 Dense layers with Dropout for regularization
+- Final softmax layer for 7-class classification
+
+Training results:
+- Test loss: 1.0277
+- Test accuracy: 62.98%
+
+Emotion Class Mapping:
+- angry: 0
+- disgusted: 1
+- fearful: 2
+- happy: 3
+- neutral: 4
+- sad: 5
+- surprised: 6
+
+The model shows moderate performance in detecting basic emotions from facial expressions, with room for improvement in accuracy.
+
+---
