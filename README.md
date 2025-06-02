@@ -5,6 +5,38 @@
 #### Output
 - the conveyed emotions in text, facial expression, and voice tonality
 
+#### Required Libraries
+```bash
+# Core libraries
+tensorflow>=2.15.0
+keras>=2.15.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Image processing
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# Audio processing
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Text processing
+nltk>=3.8.0
+transformers>=4.30.0
+
+# Utilities
+matplotlib>=3.7.0
+seaborn>=0.12.0
+tqdm>=4.65.0
+```
+
+You can install all required libraries using:
+```bash
+pip install -r requirements.txt
+```
+
 #### Why is AI needed to resolve the issue? 
 - because of the large volume of official press communication in any topic (politics, sports, fashion, tech) may threaten our capability to understand the real meaning behind those talks
 - seeing the lack of confidence in the politic class
