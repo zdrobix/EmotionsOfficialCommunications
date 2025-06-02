@@ -5,6 +5,38 @@
 #### Output
 - the conveyed emotions in text, facial expression, and voice tonality
 
+#### Required Libraries
+```bash
+# Core libraries
+tensorflow>=2.15.0
+keras>=2.15.0
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Image processing
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# Audio processing
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Text processing
+nltk>=3.8.0
+transformers>=4.30.0
+
+# Utilities
+matplotlib>=3.7.0
+seaborn>=0.12.0
+tqdm>=4.65.0
+```
+
+You can install all required libraries using:
+```bash
+pip install -r requirements.txt
+```
+
 #### Why is AI needed to resolve the issue? 
 - because of the large volume of official press communication in any topic (politics, sports, fashion, tech) may threaten our capability to understand the real meaning behind those talks
 - seeing the lack of confidence in the politic class
@@ -79,11 +111,36 @@ Accuracy: 85%
 
 ## CNN for image-based emotions
 
----
----
----
+The model was trained on the FER (Facial Emotion Recognition) dataset which contains 35,685 examples of 48x48 pixel grayscale images of faces divided into train and test datasets. Images are categorized based on the emotion shown in the facial expressions:
+- Anger
+- Disgust
+- Fear
+- Happy
+- Sad
+- Surprise
+- Neutral
 
->>>>>>> 48efe958b717e427351bb0c29644c52c758de10f
+[Link to the dataset](https://www.kaggle.com/datasets/ananthu017/emotion-detection-fer)
+
+The CNN architecture consists of:
+- 3 Convolutional layers with ReLU activation and MaxPooling
+- 2 Dense layers with Dropout for regularization
+- Final softmax layer for 7-class classification
+
+Training results:
+- Test loss: 1.0277
+- Test accuracy: 62.98%
+
+Emotion Class Mapping:
+- angry: 0
+- disgusted: 1
+- fearful: 2
+- happy: 3
+- neutral: 4
+- sad: 5
+- surprised: 6
+
+The model shows moderate performance in detecting basic emotions from facial expressions, with room for improvement in accuracy.
 
 ---
 ## Installation and Setup
