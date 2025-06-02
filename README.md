@@ -79,6 +79,11 @@ Accuracy: 85%
 
 ## CNN for image-based emotions
 
+Înainte de a utiliza CNN, instalați următoarele biblioteci:
+```bash
+pip install tensorflow keras opencv-python numpy pandas scikit-learn matplotlib seaborn
+```
+
 The model was trained on the FER (Facial Emotion Recognition) dataset which contains 35,685 examples of 48x48 pixel grayscale images of faces divided into train and test datasets. Images are categorized based on the emotion shown in the facial expressions:
 - Anger
 - Disgust
