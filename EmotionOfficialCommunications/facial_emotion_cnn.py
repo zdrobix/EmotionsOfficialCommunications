@@ -1,11 +1,12 @@
 import tensorflow as tf
-from tensorflow.keras import layers, models
+from keras import layers, models
 import numpy as np
 import os
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import ImageDataGenerator
 from sklearn.utils import class_weight
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+import keras.models
 
 # Define emotion labels
 EMOTION_LABELS = {
@@ -42,7 +43,7 @@ def create_emotion_cnn():
         layers.Flatten(),
         layers.Dense(512, activation='relu'),
         layers.BatchNormalization(),
-        layers.Dropout(0.3)
+        layers.Dropout(0.3),
         layers.Dense(7, activation='softmax')
     ])
     return model
@@ -287,6 +288,7 @@ def main():
     print("\nEmotion Class Mapping:")
     for emotion, idx in EMOTION_LABELS.items():
         print(f"    {emotion}: {idx}")
+
 
 if __name__ == "__main__":
     main()
