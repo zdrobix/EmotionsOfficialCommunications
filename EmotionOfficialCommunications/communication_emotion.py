@@ -30,7 +30,7 @@ def print_emotion_dict(title, dict):
     s = sum(dict.values())
     for k, v in dict.items():
         pct = v * 100.0 / s
-        print(f"{k}:  {pct}%")
+        print(f"{k}:  {pct:.2f}%")
     print()
 
 def emotions_for_text(text):
@@ -61,9 +61,13 @@ def emotions_for_audio(audio_path):
     prediction = np.argmax(model_audio.predict(audio))
     print(f"Emotion from audio: {emotion_audio[prediction]}")
 
-video_file_path = "./input/video/press_conference_2.mp4"
-output_frames_path = "./input/frames_from_videos"
-output_audio_path = "./input/audio/press_conference_2.wav"
+
+name = "press_conference_4"
+filename = f"{name}.mp4"
+
+video_file_path = f"./input/video/{filename}"
+output_frames_path = f"./input/frames_from_videos"
+output_audio_path = f"./input/audio/{name}.wav"
 
 extract_frames_from_video(video_file_path, output_frames_path, seconds=2)
 extract_audio_from_video(video_path=video_file_path, output_path=output_audio_path)
@@ -71,10 +75,10 @@ language, text = speech_to_text(output_audio_path)
 
 emotions_for_text(text)
 print_emotion_dict("text", emotions_text_count)
-emotions_for_facial_expression(output_frames_path + "/press_conference_2")
+emotions_for_facial_expression(output_frames_path + f"/{name}")
 print_emotion_dict("facial expressions", emotions_facial_count)
 emotions_for_audio(output_audio_path)
 
 
-plot_emotions(emotions_facial_count, "Facial", "./plots/facial_emotions.png")
-plot_emotions(emotions_text_count, "Text", "./plots/text_emotions.png")
+plot_emotions(emotions_facial_count, "Facial", f"./plots/facial_emotions_{name}.png")
+plot_emotions(emotions_text_count, "Text", f"./plots/text_emotions_{name}.png")
